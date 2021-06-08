@@ -1,0 +1,27 @@
+<h3 style="padding-top: 50px">Novo Produto </h3>
+<hr>
+<div class="row">
+  <div class="col-md-10">
+    <form #formulario="ngForm" novalidate autocomplete="off" (ngSubmit)="cadastrarProduto(produtoDto)">
+      <div class="form-group">
+        <label class="control-label" for="Nome">Nome</label>
+        <input type="text" id="txtNome" class="form-control" name="txtNome" [(ngModel)]="produtoDto.nome"
+          #txtnome="ngModel" />
+      </div>
+      <div class="form-group">
+        <label class="control-label" for="Imagem">Imagem do Produto</label>
+        <input type="text" id="txtImagem" class="form-control" name="txtImagem" [(ngModel)]="produtoDto.imagem"
+          #txtImagem="ngModel" required />
+      </div>
+      <div class="form-group">
+        <label class="control-label" for="Valor">Valor</label>
+        <input type="text" id="txtValor" class="form-control" name="txtValor" [(ngModel)]="produtoDto.valor"
+          #txtValor="ngModel" required />
+      </div>
+      <div class="form-group">
+        <input type="submit" value="Cadastrar" class="btn btn-primary">&nbsp;
+        <a class="btn btn-info" [routerLink]="['/lista-produtos']">Voltar</a>
+      </div>
+    </form>
+  </div>
+</div>

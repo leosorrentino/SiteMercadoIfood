@@ -1,0 +1,39 @@
+<main role="main" class="pb-3">
+  <h1>Lista de Produtos</h1>
+  <hr>
+  <p>
+    <a class="btn btn-info" [routerLink]="['/cadastro-produtos']">Novo Produto</a>
+  </p>
+  <table class="table table-hover">
+    <thead class="thead-light">
+      <tr>
+        <th>Imagem</th>
+        <th>Nome</th>
+        <th>Valor</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor='let produto of produtos'>
+        <td>
+          <img src="assets/{{ produto.imagem }}" title="{{ produto.nome }}" alt="{{ produto.imagem }}"
+            style="width: 70px; height: 100px">
+        </td>
+        <td>
+          {{ produto.nome }}
+        </td>
+        <td>
+          {{ produto.valor | currency:'BRL':symbol:'1.2-2' }}
+        </td>
+        <td class="text-right">    
+          <a class="btn btn-info" (click)="editarProduto(produto.id)">
+            <span class="fa fa-pencil-alt"></span>
+          </a>&nbsp;
+          <a class="btn btn-danger" (click)="excluirProduto(produto.id)">
+            <span class="fa fa-trash"></span>
+          </a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</main>
